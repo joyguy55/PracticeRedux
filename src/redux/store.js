@@ -10,6 +10,5 @@ const recordText = (state = {}, action) => {
 }
 
 const { createStore } = Redux
-const store = createStore(counter);
 
-console.log(store.getState())
+const store = createStore(recordText)

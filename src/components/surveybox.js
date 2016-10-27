@@ -1,24 +1,27 @@
 import React from 'react'
-
-const obj = {}
+import Redux from 'redux'
+require("./survey.scss")
+import Paper from 'material-ui/Paper'
 
 class SurveyBox extends React.Component{
   constructor(){
     super()
-    this.mutate = this.mutate.bind(this)
+    this.addText = this.addText.bind(this)
   }
 
-  mutate(e){
-    return console.log(e.target.value)
+  addText(){
+    Redux.store.dispatch({ type: 'addText' })
   }
 
   render(){
     return(
       <div>
-        <ul className="survey-list">
-          <li className=""><btn>text</btn></li>
-          <li className="">If other please explain<input type="string" onChange={this.mutate}/></li>
-        </ul>
+        <div className="survey-list">
+          <Paper className="survey-item" />
+          <Paper className="survey-item" If other please explain>
+            <input type="string" onChange={this.addText}/>
+          </Paper>
+        </div>
       </div>
     )
   }
