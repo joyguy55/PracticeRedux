@@ -1,0 +1,19 @@
+.question{
+  font-family: 'Open Sans', sans-serif;
+  font-size: 17.5px;
+  text-align: left;
+  padding: 15px;
+}
+.survey-list{
+  width: 320px;
+  height: 510px;
+  background: #D3D3D3;
+  .survey-item{
+    width: 310px;
+    height: 60px;
+    margin: 5px;
+    background: white;
+    text-align: left;
+    padding: 10px;
+  }
+}

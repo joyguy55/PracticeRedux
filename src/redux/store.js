@@ -1,15 +1,14 @@
-import Redux from 'redux'
+import { combineReducers, createStore } from 'redux'
 
-const recordText = (state = {}, action) => {
-  switch (action.type){
-    case 'addText':
-      return state.otherAnswer = e.target.value;
-    default:
-      return state;
-  }
-}
+import participantsReducer from './reducers/participants.js'
+import resultsReducer from './reducers/results.js'
 
-const { createStore } = Redux
-const store = createStore(counter);
+const reducers =  combineReducers({
+  participant: participantsReducer,
+})
 
-console.log(store.getState())
+const store = createStore(reducers)
+
+store.subscribe(()=>{ console.log("store changed", store.getState()) })
+
+export default store
