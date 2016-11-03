@@ -11,8 +11,8 @@ import { bindActionCreators } from 'redux'
 // import FileCloudDownload from 'material-ui/svg-icons/file/cloud-download';
 
 
-import * as actions from '.././redux/actions/participants.js'
-import injectTapEventPlugin from 'react-tap-event-plugin';
+import * as actions from '.././redux/actions/submit-answer.js'
+// import injectTapEventPlugin from 'react-tap-event-plugin';
 
 const questions = ['Indifferent','Negative','Positive']
 
@@ -21,39 +21,40 @@ class SurveyBox extends React.Component{
     super(props)
     this.state = {
       inputOn : false,
-      isActive : null
+      isActive : null,
+      answer : null,
     }
   }
 
   render(){
-    const update = () => {this.setState({inputOn :!(this.state.inputOn), isActive : "active"})}
-    console.log(this.props)
+    const update = (index) => {
+      // console.log(index)
+        this.setState({ inputOn :!(this.state.inputOn),
+                        isActive : "active",
+                        answer : index
+                      })
+    }
     return(
       <div>
         <div className="survey-list">
           <div className="question">Quick Question.</div>
-          <Paper className="survey-item">
-            <p>{questions[0]}</p>
-              <IconButton className="selection ${this.state.className}"
-                onClick={update}
-              />
-          </Paper>
-          <Paper className="survey-item">
-            <p>{questions[1]}</p>
-            <IconButton className="selection ${this.state.className}"
-                onClick={update}
-              />
-          </Paper>
-          <Paper className="survey-item">
-            <p>{questions[2]}</p>
-            <IconButton className="selection ${this.state.className}"
-                onClick={function handleEvents(){update()}}
-              />
-          </Paper>
+          {
+            questions.map((element,index)=>{
+              // console.log(index)
+              return(
+                <Paper className="survey-item">
+                  <p>{element}</p>
+                  <IconButton value={index} key={index} className="selection ${this.state.className}"
+                      onClick={(event)=>{update(event.target.value)}}
+                    />
+                </Paper>
+              )
+            })
+          }
           <Paper className="survey-item">
              <TextField type="text" hintText="If other please explain" />
           </Paper>
-          <div>{ this.state.inputOn ? <div className="submit" onClick={this.props.actions}>SUBMIT</div> : null }</div>
+          <div>{ this.state.inputOn ? <div className="submit" onClick={()=>{this.props.action.submitAnswer()}}>SUBMIT</div> : null }</div>
         </div>
       </div>
     )
@@ -82,4 +83,17 @@ export default connect(
         // </Paper>
         // <Paper className="survey-item">
         //    <TextField type="text" hintText="Party: Rep Dem Lean Centrist" onChange={this.addText}/>
+        // </Paper>
+
+        // <Paper className="survey-item">
+        //   <p>{questions[0]}</p>
+        //     <IconButton className="selection ${this.state.className}"
+        //       onClick={update}
+        //     />
+        // </Paper>
+        // <Paper className="survey-item">
+        //   <p>{questions[1]}</p>
+        //   <IconButton className="selection ${this.state.className}"
+        //       onClick={update}
+        //     />
         // </Paper>

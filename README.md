@@ -1,6 +1,6 @@
-## About this practice Survey App. 
+## About this practice Survey App.
 
-Sup if you are coming onto this project here are some links that I have been using for inspiration. Eventually this should become a wordpress plugin that is used to gather survey data. One of the best ways to get data to be authenticatable will be having them login with there facebook. Anyhow everything is awesome hope you like this. 
+Sup if you are coming onto this project here are some links that I have been using for inspiration. Eventually this should become a wordpress plugin that is used to gather survey data. One of the best ways to get data authentication able will be having them login with there facebook. Anyhow everything is awesome hope you like this. 
 
 https://dribbble.com/shots/2386213-Oddo-Polls-and-Surveys-for-investors
 

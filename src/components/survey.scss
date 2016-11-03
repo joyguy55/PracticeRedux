@@ -2,7 +2,7 @@
 .survey-list{
   width: 320px;
   height: 470px;
-  background: #D3D3D3;
+  background: #F5F5F5;
   position: relative;
   .survey-item{
     font-family: 'Open Sans', sans-serif;
@@ -12,6 +12,7 @@
     background: white;
     text-align: left;
     padding: 0px 10px;
+    display: block;
     p{
       margin: 0px;
       padding: 12px 5px;
@@ -23,6 +24,31 @@
     font-size: 20px;
     text-align: left;
     padding: 19px;
+    // border-bottom: 4px solid #2979FF;
+    margin-bottom: 20px;
+    position: relative;
+     &:after {
+       content: '';
+       border-bottom: 4px solid #2979FF;
+       position: absolute;
+       width: 30px;
+       bottom: 0;
+       left: 0;
+       margin-left: 20px;
+       margin-bottom: 10px;
+     }
+    //   content: '';
+    //   position: fixed;
+    //   top: 50px;
+    //   bottom: 20px;
+    //   left: 10%;
+    //   right: 50%;
+    //   // left:50%;
+    //   // bottom:0px;
+    //   transform:translateY(-50%);
+    //   width:4px;
+    //   background-color:#2979FF;
+    // }
   }
   .submit{
     font-family: 'Open Sans', sans-serif;
