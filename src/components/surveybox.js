@@ -22,7 +22,7 @@ class SurveyBox extends React.Component{
     this.state = {
       inputOn : false,
       isActive : null,
-      answer : null,
+      index : null,
     }
   }
 
@@ -31,8 +31,9 @@ class SurveyBox extends React.Component{
       // console.log(index)
         this.setState({ inputOn :!(this.state.inputOn),
                         isActive : "active",
-                        answer : index
+                        index : index
                       })
+        index === this.state.index ? false : this.setState({inputOn:true})
     }
     return(
       <div>
