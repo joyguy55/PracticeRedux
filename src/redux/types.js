@@ -1,0 +1,1 @@
+export const SUBMIT_ANSWER_Q1 = 'SUBMIT_ANSWER_Q1'

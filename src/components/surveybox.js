@@ -2,7 +2,6 @@ import React from 'react'
 require("./survey.scss")
 import Paper from 'material-ui/Paper'
 import TextField from 'material-ui/TextField'
-import { IconButton } from 'material-ui'
 
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
@@ -13,6 +12,7 @@ import { bindActionCreators } from 'redux'
 
 import * as actions from '.././redux/actions/submit-answer.js'
 // import injectTapEventPlugin from 'react-tap-event-plugin';
+import AnswerDiv from './answerdiv.js'
 
 const questions = ['Indifferent','Negative','Positive']
 
@@ -28,7 +28,6 @@ class SurveyBox extends React.Component{
 
   render(){
     const update = (index) => {
-      // console.log(index)
         this.setState({ inputOn :!(this.state.inputOn),
                         isActive : "active",
                         index : index
@@ -39,23 +38,11 @@ class SurveyBox extends React.Component{
       <div>
         <div className="survey-list">
           <div className="question">Quick Question.</div>
-          {
-            questions.map((element,index)=>{
-              // console.log(index)
-              return(
-                <Paper className="survey-item">
-                  <p>{element}</p>
-                  <IconButton value={index} key={index} className="selection ${this.state.className}"
-                      onClick={(event)=>{update(event.target.value)}}
-                    />
-                </Paper>
-              )
-            })
-          }
+          <AnswerDiv questions={questions} update={update}/>
           <Paper className="survey-item">
-             <TextField type="text" hintText="If other please explain" />
+            <TextField type="text" hintText="If other please explain" />
           </Paper>
-          <div>{ this.state.inputOn ? <div className="submit" onClick={()=>{this.props.action.submitAnswer()}}>SUBMIT</div> : null }</div>
+          <div>{ this.state.inputOn ? <div className="submit" onClick={()=>{this.props.action.submitAnswer(questions[this.state.index])}}>SUBMIT</div> : null }</div>
         </div>
       </div>
     )

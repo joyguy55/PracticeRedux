@@ -1,17 +1,18 @@
 
  const participantsReducer = (state={}, action) => {
-  switch (action.type) {
-    case "SET_PARTICIPANT":{
-        return{
-          ...state,
-          ...action.payload
-        }
-      break;
-      }
-    default:{
-      return state
-    }
-  }
+  // switch (action.type) {
+  //   case "SET_PARTICIPANT":{
+  //       return{
+  //         ...state,
+  //         ...action.payload
+  //       }
+  //     break;
+  //     }
+  //   default:{
+  //     return state
+  //   }
+  // }
+  return state
 }
 
 

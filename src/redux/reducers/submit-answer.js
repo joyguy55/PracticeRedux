@@ -1,17 +1,28 @@
+const types = require('../types')
 
-const answers = {
-  question1: "",
-  question2: "",
-  question3: ""
+const surveyAnswers = {
+  question1: {
+              title: "What",
+              answer: ""
+              },
+  question2: {
+              title: "Why",
+              answer: ""
+              },
+  question3: {
+              title: "How",
+              answer: ""
+            }
 }
 
-export const recordReducer = (state = answers, action) => {
-  answers[action.type]
-  // switch (action.type){
-  //   case 'addText':
-  //     return state.otherAnswer = e.target.value;
-  //   default:
-  //     return state;
-  // }
-  return state
+export default function(state = surveyAnswers, action){
+console.log(state)
+
+  const newState = JSON.parse(JSON.stringify(state))
+
+  const actions = {
+    [types.SUBMIT_ANSWER_Q1](){return(newState.question1.answer=action.payload)},
+  }
+
+  return actions[action.type] === undefined ? state :actions[action.type]
 }

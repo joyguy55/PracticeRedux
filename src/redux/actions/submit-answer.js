@@ -1,6 +1,8 @@
+const types = require('../types')
+
 export function submitAnswer(answer){
   return{
-    type:"SUBMIT_ANSWER",
+    type: types.SUBMIT_ANSWER_Q1,
     answer
   }
 }
